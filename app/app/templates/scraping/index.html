@@ -1,0 +1,10 @@
+<html>
+    <body>
+        {% for sho in narou %}
+            <h2>{{ sho.title }}</h2>
+            {% for line in sho.lines %}
+            <p>{{line}}</p>
+            {% endfor %}
+        {% endfor %}
+    </body>
+</html>
