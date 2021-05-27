@@ -1,4 +1,5 @@
 from os import error
+import bs4
 from django import http
 from django.shortcuts import render
 from django.http import HttpResponse
@@ -67,6 +68,9 @@ def scraping(id, r):
                     # ルビの部分は破棄, 内容のみ取得
                     if linecontent.name == 'ruby':
                         linecontenttext += linecontent.contents[0].contents[0]
+                        continue
+
+                    if type(linecontent) is not bs4.element.NavigableString:
                         continue
 
                     #通常行
